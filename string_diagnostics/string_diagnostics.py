@@ -56,7 +56,10 @@ class StringDiagnosticsNode(Node):
 def main(argv=None):
     rclpy.init()
     node = StringDiagnosticsNode()
-    rclpy.spin(node)
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
     node.destroy_node()
     rclpy.try_shutdown()
 
